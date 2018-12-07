@@ -24,7 +24,7 @@ namespace HairSalon.Tests
     [TestMethod]
     public void StylistConstructor_CreastesInstanceOfStylist_Stylist()
     {
-      Stylist newStylist = new Stylist("test string");
+      Stylist newStylist = new Stylist("test stylist");
       Assert.AreEqual(typeof(Stylist), newStylist.GetType());
     }
     [TestMethod]
@@ -41,5 +41,36 @@ namespace HairSalon.Tests
       Assert.AreEqual(name, result);
 
     }
+    [TestMethod]
+  public void GetAll_ReturnsAllStylistObjects_StylistList()
+  {
+    //Arrange
+    string name01 = "Work";
+    string name02 = "School";
+    Stylist newStylist1 = new Stylist(name01);
+    newStylist1.Save();
+    Stylist newStylist2 = new Stylist(name02);
+    newStylist2.Save();
+    List<Stylist> newList = new List<Stylist> { newStylist1, newStylist2 };
+
+    //Act
+    List<Stylist> result = Stylist.GetAll();
+
+    //Assert
+    CollectionAssert.AreEqual(newList, result);
+  }
+  [TestMethod]
+  public void Find_ReturnsStylistInDatabase_Stylist()
+  {
+    //Arrange
+    Stylist testStylist = new Stylist("Household chores");
+    testStylist.Save();
+
+    //Act
+    Stylist foundStylist = Stylist.Find(testStylist.GetId());
+
+    //Assert
+    Assert.AreEqual(testStylist, foundStylist);
+  }
   }
 }

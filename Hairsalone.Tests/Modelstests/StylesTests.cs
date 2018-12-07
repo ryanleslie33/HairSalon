@@ -16,6 +16,30 @@ namespace HairSalon.Tests
     }
     public void Dispose()
     {
-      Category.ClearAll();
-      Item.ClearAll();
+      Stylist.ClearAll();
+      Client.ClearAll();
     }
+
+
+    [TestMethod]
+    public void StylistConstructor_CreastesInstanceOfStylist_Stylist()
+    {
+      Stylist newStylist = new Stylist("test string");
+      Assert.AreEqual(typeof(Stylist), newStylist.GetType());
+    }
+    [TestMethod]
+    public void GetStylistName_ReturnsName_String()
+    {
+      //Arrange
+      string name = "Test Stylist";
+      Stylist newStylist = new Stylist(name);
+
+      //Act
+      string result = newStylist.GetStylistName();
+
+      //Assert
+      Assert.AreEqual(name, result);
+
+    }
+  }
+}

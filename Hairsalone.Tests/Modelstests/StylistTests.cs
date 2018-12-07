@@ -59,18 +59,18 @@ namespace HairSalon.Tests
     //Assert
     CollectionAssert.AreEqual(newList, result);
   }
-  [TestMethod]
-  public void Find_ReturnsStylistInDatabase_Stylist()
-  {
-    //Arrange
-    Stylist testStylist = new Stylist("Household chores");
-    testStylist.Save();
-
-    //Act
-    Stylist foundStylist = Stylist.Find(testStylist.GetId());
-
-    //Assert
-    Assert.AreEqual(testStylist, foundStylist);
-  }
+  // [TestMethod]
+  // public void Find_ReturnsStylistInDatabase_Stylist()
+  // {
+  //   //Arrange
+  //   Stylist testStylist = new Stylist("Household chores");
+  //   testStylist.Save();
+  //
+  //   //Act
+  //   Stylist foundStylist = Stylist.Find(testStylist.GetId());
+  //
+  //   //Assert
+  //   Assert.AreEqual(testStylist, foundStylist);
+  // }
   }
 }

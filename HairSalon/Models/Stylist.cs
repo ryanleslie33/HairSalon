@@ -120,6 +120,33 @@ public static Stylist Find(int id)
       }
       return newStylist;
     }
+    public List<Client> GetClient()
+{
+  List<Client> allStylistClients = new List<Client> {};
+  MySqlConnection conn = DB.Connection();
+  conn.Open();
+  var cmd = conn.CreateCommand() as MySqlCommand;
+  cmd.CommandText = @"SELECT * FROM Client WHERE Stylist_id = @Stylist_id;";
+  MySqlParameter categoryId = new MySqlParameter();
+  stylistId.ParameterName = "@Stylist_id";
+  stylistId.Value = this._id;
+  cmd.Parameters.Add(stylistId);
+  var rdr = cmd.ExecuteReader() as MySqlDataReader;
+  while(rdr.Read())
+  {
+    int ClientId = rdr.GetInt32(0);
+    string ClientDescription = rdr.GetString(1);
+    int ClientStylistId = rdr.GetInt32(2);
+    Client newClient = new Client(ClientDescription, ClientStylistId, ClientId);
+    allStylistClients.Add(newClient);
+  }
+  conn.Close();
+  if (conn != null)
+  {
+    conn.Dispose();
+  }
+  return allStylistClients;
+}
 
 
 

@@ -12,9 +12,9 @@ namespace HairSalon.Models
     private int _id;
     private List<Client> _Client;
 
-    public Stylist(string _StylistName, int id = 0)
+    public Stylist(string StylistName, int id = 0)
     {
-      _StylistNamename = StylistName;
+      _StylistName = StylistName;
       _id = id;
       _Client = new List<Client>{};
     }
@@ -92,7 +92,7 @@ public void Save()
   {
     conn.Dispose();
   }
-  Console.WriteLine("Successfully saved ''" + this._StylistName + "'' to the database");
+
 }
 public static Stylist Find(int id)
   {
@@ -127,10 +127,10 @@ public static Stylist Find(int id)
   conn.Open();
   var cmd = conn.CreateCommand() as MySqlCommand;
   cmd.CommandText = @"SELECT * FROM Client WHERE Stylist_id = @Stylist_id;";
-  MySqlParameter categoryId = new MySqlParameter();
-  stylistId.ParameterName = "@Stylist_id";
-  stylistId.Value = this._id;
-  cmd.Parameters.Add(stylistId);
+  MySqlParameter StylistId = new MySqlParameter();
+  StylistId.ParameterName = "@Stylist_id";
+  StylistId.Value = this._id;
+  cmd.Parameters.Add(StylistId);
   var rdr = cmd.ExecuteReader() as MySqlDataReader;
   while(rdr.Read())
   {

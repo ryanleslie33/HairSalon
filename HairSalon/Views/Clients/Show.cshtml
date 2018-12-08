@@ -1,0 +1,9 @@
+<h1>To Do List Client Details: </h1>
+
+<h2>@Model["Client"].GetClientName()</h2>
+<h3>Category: @Model["Stylist"].GetStylstName()</h3>
+
+<a href='/Stylist/@Model["Stylist"].GetId()/Client/new'>Add another Client</a>
+<a href='/Stylist'>View all Stylist</a>
+
+<a href='/Stylist/@Model["Stylist"].GetId()/Client/@Model["Client"].GetId()/edit'>Edit this Item</a>

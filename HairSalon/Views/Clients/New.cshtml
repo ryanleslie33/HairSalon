@@ -5,9 +5,9 @@
     <title>Hello friend!</title>
   </head>
   <body>
-    <h1>Add a new Client to @Model.GetStylistIdName()</h1>
+    <h1>Add a new Client to @Model.GetStylistName()</h1>
 
-<form action='/Stylist/@Model.GetId()/Clients' method='post'>
+<form action='/Stylist/@Model.GetId()/Client' method='post'>
   <input id='StylistId' name='stylistId' type='hidden' value='@Model.GetId()'>
   <label for='ClientName'>Client Name</label>
   <input id='ClientName' name='ClientName' type='text'>

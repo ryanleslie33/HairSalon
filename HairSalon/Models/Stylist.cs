@@ -12,7 +12,7 @@ namespace HairSalon.Models
     private int _id;
     private List<Client> _Client;
 
-    public Stylist(string StylistName, int id = 0)
+    public Stylist(string StylistName, int id = 0 )
     {
       _StylistName = StylistName;
       _id = id;
@@ -80,7 +80,7 @@ public void Save()
   MySqlConnection conn = DB.Connection();
   conn.Open();
   var cmd = conn.CreateCommand() as MySqlCommand;
-  cmd.CommandText = @"INSERT INTO stylist (name) VALUES (@name);";
+  cmd.CommandText = @"INSERT INTO stylist (Stylistname) VALUES (@name);";
   MySqlParameter name = new MySqlParameter();
   name.ParameterName = "@name";
   name.Value = this._StylistName;

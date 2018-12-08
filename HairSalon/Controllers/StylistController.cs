@@ -43,11 +43,16 @@ namespace HairSalon.Controllers
       Stylist foundStylist = Stylist.Find(StylistID);
       Client newClient = new Client(ClientName, StylistID);
       newClient.Save();
-    
+
       List<Client> StylistClient = foundStylist.GetClient();
       model.Add("Client", StylistClient);
       model.Add("Stylist", foundStylist);
       return View("Show", model);
+    }
+    [HttGet("/Stylist/{id}/Client/{id}")]
+    public ActionResult GetAppointments( int ClientID, int StylistID)
+    {
+      
     }
   }
 }

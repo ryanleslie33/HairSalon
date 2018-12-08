@@ -49,10 +49,10 @@ namespace HairSalon.Controllers
       model.Add("Stylist", foundStylist);
       return View("Show", model);
     }
-    [HttGet("/Stylist/{id}/Client/{id}")]
-    public ActionResult GetAppointments( int ClientID, int StylistID)
-    {
-      
-    }
+    // [HttGet("/Stylist/{id}/Client/{id}")]
+    // public ActionResult GetAppointments( int ClientID, int StylistID)
+    // {
+    //
+    // }
   }
 }

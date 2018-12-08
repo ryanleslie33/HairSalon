@@ -118,7 +118,7 @@ namespace HairSalon.Tests
       //Assert
       CollectionAssert.AreEqual(testClientList, resultClientList);
     }
-  
+
     [TestMethod]
     public void Equals_ReturnsTrueIfNamesAreTheSame_Stylist()
     {

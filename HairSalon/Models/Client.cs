@@ -40,7 +40,7 @@ namespace HairSalon.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"SELECT * FROM Client;";
+      cmd.CommandText = @"SELECT * FROM client;";
       var rdr = cmd.ExecuteReader() as MySqlDataReader;
       while(rdr.Read())
       {
@@ -62,7 +62,7 @@ namespace HairSalon.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"DELETE FROM Client;";
+      cmd.CommandText = @"DELETE FROM client;";
       cmd.ExecuteNonQuery();
       conn.Close();
       if (conn != null)
@@ -75,7 +75,7 @@ namespace HairSalon.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"SELECT * FROM Client WHERE id = (@searchId);";
+      cmd.CommandText = @"SELECT * FROM client WHERE id = (@searchId);";
       MySqlParameter searchId = new MySqlParameter();
       searchId.ParameterName = "@searchId";
       searchId.Value = id;
@@ -118,7 +118,7 @@ namespace HairSalon.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"INSERT INTO Client (ClientName, Stylist_id) VALUES (@ClientName, @Stylist_id);";
+      cmd.CommandText = @"INSERT INTO client (ClientName, Stylist_id) VALUES (@ClientName, @Stylist_id);";
       MySqlParameter ClientName = new MySqlParameter();
       ClientName.ParameterName = "@ClientName";
       ClientName.Value = this._ClientName;
@@ -140,7 +140,7 @@ namespace HairSalon.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"UPDATE Client SET Client = @newLCientName WHERE id = @searchId;";
+      cmd.CommandText = @"UPDATE Client SET client = @newLCientName WHERE id = @searchId;";
       MySqlParameter searchId = new MySqlParameter();
       searchId.ParameterName = "@searchId";
       searchId.Value = _id;
